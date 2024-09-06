@@ -61,6 +61,8 @@ p {
   border: 2px solid var(--border-color);
   border-collapse: collapse;
   width: 100%;
+  position: relative;
+  transition: all 500ms ease-in;
 }
 .invoice-table thead th {
   padding: 0.5rem;
@@ -72,6 +74,25 @@ p {
   border: 1px solid var(--border-color);
 }
 
+.invoice-table tbody tr:last-of-type {
+  transition: all 400ms ease-in;
+}
+
+.table-container{
+  position: relative;
+}
+
+.table-container .material-symbols-outlined{
+  position: absolute;
+  right: 0;
+  bottom: -0.5rem;
+  cursor: pointer;
+  background-color: var(--background);
+  border-radius: 50%;
+}
+.table-container:hover .invoice-table tbody tr:last-of-type {
+  border-bottom: 2px solid var(--light-blue);
+}
 /* Total section */
 .total-section {
   text-align: end;

@@ -4,7 +4,7 @@ const grandTotal = document.querySelector("#grand-total");
 const invoiceNumber = document.querySelector("#invoice-number");
 const poNumber = document.querySelector("#PO-number");
 const invoiceDate = document.querySelector("#invoice-date");
-const btn = document.querySelector("button");
+const addButton = document.querySelector("#addBtn");
 
 const Price = document.querySelectorAll(
   ".invoice-table tbody tr td:nth-child(3)"
@@ -17,20 +17,32 @@ const Total = document.querySelectorAll(
 );
 
 
+
 // eventlistensers 
-QTY.forEach((cell) => {
-  cell.addEventListener("input", calculate);
-});
 
-Price.forEach((cell) => {
-  cell.addEventListener("input", calculate);
-});
-
-window.addEventListener("load",poNum)
-// btn.addEventListener("click", poNum);
+window.addEventListener("load", poNum)
+window.addEventListener("load", addListeners)
+addButton.addEventListener("click",addRow)
 
 
 // functions 
+function addListeners() {
+  let qtyCells = document.querySelectorAll(".invoice-table tbody tr td:nth-child(3)");
+  let priceCells = document.querySelectorAll(".invoice-table tbody tr td:nth-child(4)");
+
+  qtyCells.forEach((cell) => {
+    cell.setAttribute("contenteditable", "true");
+    cell.removeEventListener("input", calculate); 
+    cell.addEventListener("input", calculate); 
+  });
+
+  priceCells.forEach((cell) => {
+    cell.setAttribute("contenteditable", "true");
+    cell.removeEventListener("input", calculate);
+    cell.addEventListener("input", calculate); 
+  });
+}
+
 function poNum() {
   let aplpha = [
     "A",
@@ -101,4 +113,15 @@ function calculate() {
     grandTotal.innerText = grancalc.toLocaleString();
     subTotal.innerText = total.toLocaleString();
   });
+}
+
+function addRow(){
+  let tbody = document.querySelector("table tbody");
+  let newrow = document.createElement("tr");
+  for (i = 0; i < 5; i++) {
+    let tabledata = document.createElement("td");
+    tabledata.setAttribute("contenteditable", "true");
+    newrow.append(tabledata);
+  }
+  tbody.append(newrow);
 }
