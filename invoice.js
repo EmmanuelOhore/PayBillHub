@@ -4,11 +4,13 @@ const grandTotal = document.querySelector("#grand-total");
 const invoiceNumber = document.querySelector("#invoice-number");
 const poNumber = document.querySelector("#PO-number");
 const invoiceDate = document.querySelector("#invoice-date");
+const numToWords = document.querySelector("#numToWords");
 const invoiceTbody = document.querySelector(".invoice-table tbody");
 const invoiceSn = document.querySelector(
   ".invoice-table tbody tr td:nth-child(1)"
 );
-const addButton = document.querySelector("#addBtn");
+const addButtonOne = document.querySelector(".btn-one");
+const addButtonTwo = document.querySelector(".btn-two");
 
 const Price = document.querySelectorAll(
   ".invoice-table tbody tr td:nth-child(3)"
@@ -23,7 +25,8 @@ const Total = document.querySelectorAll(
 // eventlistensers
 window.addEventListener("load", poNum);
 invoiceTbody.addEventListener("input", calculate);
-addButton.addEventListener("click", addRow);
+addButtonOne.addEventListener("click", addRow);
+addButtonTwo.addEventListener("click", addRow);
 
 // functions
 function poNum() {
@@ -96,7 +99,31 @@ function calculate() {
     grandTotal.innerText = grancalc.toLocaleString();
     subTotal.innerText = total.toLocaleString();
   });
+
+  convertNumToWords()
 }
+
+
+function convertNumToWords(){
+  let numbers= parseInt( grandTotal.innerText.replace(/,/g,""),10);
+  if(numbers>0){
+    let words= numberToWords.toWords(numbers)
+    let capWord= capitalizeWord(words)
+    numToWords.innerText=capWord
+  }else(
+    numToWords.innerText ="0"
+  )
+}
+
+function capitalizeWord( sentence){
+  let word = sentence.split(" ")
+  let caps= word.map(cap=>{
+    return cap.charAt(0).toUpperCase() + cap.slice(1)
+  })
+  return capWord= caps.join(" ")
+}
+
+
 
 function addRow() {
   let tbody = document.querySelector("table tbody");
@@ -107,17 +134,15 @@ function addRow() {
     newrow.append(tabledata);
   }
   tbody.append(newrow);
-
-   updateSerialNumber()
+  updateSerialNumber();
 }
 
-function updateSerialNumber(){
+function updateSerialNumber() {
   let serialNumberRow = document.querySelectorAll(".invoice-table tbody tr");
-serialNumberRow.forEach((row,index)=>{
-  let serialNumberCell= row.querySelectorAll("td")
-  if(serialNumberCell.length>0){
-    serialNumberCell[0].innerText= index+1
-  }
-})
-
+  serialNumberRow.forEach((row, index) => {
+    let serialNumberCell = row.querySelectorAll("td");
+    if (serialNumberCell.length > 0) {
+      serialNumberCell[0].innerText = index + 1;
+    }
+  });
 }

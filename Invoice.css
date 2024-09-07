@@ -78,17 +78,23 @@ p {
   transition: all 400ms ease-in;
 }
 
-.table-container{
+.table-container {
   position: relative;
 }
 
-.table-container .material-symbols-outlined{
+.table-container .material-symbols-outlined {
   position: absolute;
-  right: 0;
-  bottom: -0.5rem;
   cursor: pointer;
   background-color: var(--background);
   border-radius: 50%;
+}
+.table-container .btn-one{
+  right: -.6rem;
+  bottom: -0.8rem;
+}
+.table-container .btn-two{
+  left: -.6rem;
+  bottom: -0.8rem;
 }
 .table-container:hover .invoice-table tbody tr:last-of-type {
   border-bottom: 2px solid var(--light-blue);
@@ -101,7 +107,16 @@ p {
 
 .total-section .notes-signature {
   text-align: start;
-  margin-top: 1rem;
+  margin-top: 3rem;
+}
+
+.total-section .totals {
+  display: flex;
+  justify-content: space-between;
+}
+.total-section .totals .numwords-container {
+  display: flex;
+  align-items: center;
 }
 
 button {
