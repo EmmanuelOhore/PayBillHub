@@ -73,7 +73,7 @@ const Dashboard = () => {
         label: "Activity Summary",
         data: [125, 95, 15], // Corresponding data
         backgroundColor: "#80C4E9", // For a clean look
-        borderColor: "#2C3E50", // Darker border for contrast
+
         borderWidth: 1,
       },
     ],
