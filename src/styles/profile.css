@@ -110,11 +110,15 @@ p {
   font-weight: 600;
 }
 .profile-input-box input {
-  height: 2rem;
+  height: 2.4rem;
   border-radius: 0.3rem;
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
   border: none;
   width: 90%;
+}
+.profile-input-box input::placeholder {
+  padding-left: 0.5rem;
+  font-size: 0.8rem;
 }
 /* * profile header styling end */
 
@@ -191,7 +195,7 @@ p {
 }
 
 .Aemail i {
-  color: rgb(122, 214, 122);
+  color: var(--green);
   font-size: 1.1rem;
 }
 /* contact info section  styling end*/

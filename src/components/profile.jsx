@@ -33,11 +33,11 @@ const Profile = () => {
           <div className="profile-info-header">
             <div className="profile-input-box">
               <label>First Name</label>
-              <input type="text" name="full-name" />
+              <input type="text" placeholder="Jane" name="full-name" />
             </div>
             <div className="profile-input-box">
               <label>Last Name</label>
-              <input type="text" name="last-name" />
+              <input type="text" placeholder="Smith" name="last-name" />
             </div>
           </div>
           {/* profile info header end */}

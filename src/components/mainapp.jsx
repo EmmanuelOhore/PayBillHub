@@ -1,13 +1,13 @@
 import { Route, Routes } from "react-router-dom";
-import SideBar from "./sidebar";
 import Dashboard from "./dashboard";
 import Invoice from "./invoice";
 import Profile from "./profile";
 import "../styles/dashbaord.css";
+import SideBar from "./sidebar";
 const Hydrocarbon = () => {
   return (
     <>
-      <div className="dashboard-container">
+      <div className="main-container">
         <SideBar />
         <main className="main-content">
           <Routes>
